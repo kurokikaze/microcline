@@ -18,7 +18,11 @@
         request.sendBody(req_body);
         request.finish(function (response) {
           response.addListener("body", function (chunk) {
-            promise.emitSuccess(JSON.parse(chunk).issue);
+              if (response.statusCode == 200) {
+                promise.emitSuccess(JSON.parse(chunk).issue);
+              } else {
+                promise.emitError(response.statusCode);
+              }
           });
         });
 
@@ -39,7 +43,12 @@
         request.sendBody(req_body);
         request.finish(function (response) {
           response.addListener("body", function (chunk) {
-              promise.emitSuccess(JSON.parse(chunk).issue);
+              if (response.statusCode == 200) {
+                promise.emitSuccess(JSON.parse(chunk).issue);
+              } else {
+                sys.puts('Error: ' + response.statusCode);
+                promise.emitError(response.statusCode);
+              }
           });
         });
 
@@ -60,7 +69,12 @@
         request.sendBody(req_body);
         request.finish(function (response) {
           response.addListener("body", function (chunk) {
-              promise.emitSuccess(JSON.parse(chunk));
+              if (response.statusCode == 200) {
+                promise.emitSuccess(JSON.parse(chunk).issue);
+              } else {
+                sys.puts('Error: ' + response.statusCode);
+                promise.emitError(response.statusCode);
+              }
           });
         });
 
