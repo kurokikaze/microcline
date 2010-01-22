@@ -4,6 +4,7 @@ Microcline is simple Github API bindings for Node.js to simplify unit-testing. I
 ## Usage
 Opening new issue in project 'example-js'
 
+	var microcline = require("./microcline");
 	var github = new microcline.github('username', 'your-Github-API-token');
 
 	opening = github.create('example-js', 'New issue name', 'Issue text: everything is broken, nothing works');
@@ -14,6 +15,7 @@ Opening new issue in project 'example-js'
 
 Closing issue #1 in project 'example-js'
 
+	var microcline = require("./microcline");
 	var github = new microcline.github('username', 'your-Github-API-token');
 
 	closing = github.close('example-js', '1');
@@ -24,6 +26,7 @@ Closing issue #1 in project 'example-js'
 
 Reopening issue #1 in project 'example-js'
 
+	var microcline = require("./microcline");
 	var github = new microcline.github('username', 'your-Github-API-token');
 
 	reopening = github.reopen('example-js', '1');
